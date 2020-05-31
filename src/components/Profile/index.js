@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Profile = () => {
+const Profile = () => (
     <div className="Profile-wrapper">
         <h1>
             Meu Nome
@@ -12,6 +12,6 @@ const Profile = () => {
             Discretion
             </p>
     </div>
-}
+)
 
 export default Profile;

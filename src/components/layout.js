@@ -6,7 +6,7 @@
  */
 import React from "react";
 import PropTypes from "prop-types";
-import Profile from "./Pofile";
+import Profile from "./Profile";
 
 const Layout = ({ children }) => {
   return (
