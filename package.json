@@ -19,6 +19,7 @@
     "react-helmet": "^6.0.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "prettier": "2.0.5"
   },
   "keywords": [
@@ -29,6 +30,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "developPG": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "startPG": "npm run developPG",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
