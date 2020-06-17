@@ -1,8 +1,17 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby';
 
-const Profile = () => (
-    <StaticQuery query={graphql`
+import Avatar from '../Avatar';
+
+const Profile = () => {
+    const {
+        site: {
+            siteMetadata: {
+                title,
+                description,
+                author }
+        }
+    } = useStaticQuery(graphql`
     query MyQuery {
                 site {
                     siteMetadata {
@@ -13,30 +22,21 @@ const Profile = () => (
                 }
             }
 
-        `}
-        render={({
-            site: {
-                siteMetadata: {
-                    title,
-                    description,
-                    author }
-            }
-        }
-        ) => (
-                <div className="Profile-wrapper">
-                    <h1>
-                        {title}
-                    </h1>
-                    <h2>
-                        {author}
-                    </h2>
-                    <p>
-                        {description}
-                    </p>
-                </div>
-            )
-        }
-    />
-)
+        `)
+    return (
+        <div className="Profile-wrapper">
+            <Avatar />
+            <h1>
+                {title}
+            </h1>
+            <h2>
+                {author}
+            </h2>
+            <p>
+                {description}
+            </p>
+        </div>
+    )
+}
 
 export default Profile;
