@@ -5,37 +5,40 @@ import * as S from './styles';
 import Avatar from '../Avatar';
 
 const Profile = () => {
-    const {
-        site: {
-            siteMetadata: {
-                title,
-                description,
-                author }
-        }
-    } = useStaticQuery(graphql`
+  const {
+    site: {
+      siteMetadata: {
+        title,
+        description,
+        position,
+        author }
+    }
+  } = useStaticQuery(graphql`
     query MyQuery {
                 site {
                     siteMetadata {
                     title
                     description
+                    position
                     author
                     }
                 }
             }
 
         `)
-    return (
-        <S.ProfileWrapper>
-        <S.ProfileLink>
-          <Avatar />
-          <S.ProfileAuthor>
-            {title}
-            <S.ProfilePosition>{author}</S.ProfilePosition>
-          </S.ProfileAuthor>
-        </S.ProfileLink>
-        <S.ProfileDescription>{description}</S.ProfileDescription>
-      </S.ProfileWrapper>
-    )
+  return (
+    <S.ProfileWrapper>
+      <S.ProfileLink>
+        <Avatar />
+        <S.ProfileAuthor>
+          {title}
+          <S.ProfilePosition>{position}</S.ProfilePosition>
+        </S.ProfileAuthor>
+      </S.ProfileLink>
+      <S.ProfileDescription>{description}</S.ProfileDescription>
+      <S.ProfileDescription>{author}</S.ProfileDescription>
+    </S.ProfileWrapper>
+  )
 }
 
 export default Profile;

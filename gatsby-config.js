@@ -1,8 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `Pagina`,
-    description: `Uma pequena pagina.`,
-    author: `@Amauri Oliveira`,
+    title: `Amauri Oliveira`,
+    description: `Estudante de Análise e Desenvolvimento de Sistemas,
+     formado em Técnico em informática,
+      membro da Fellowship of The Game,
+       Game Developer,
+        apaixonado por tecnologias.`,
+    position: `Analysis and Systems Development | NodeJS | Unity |
+     JavaScript | React | Fellowship of The Game`,
+    author: `Amauri Antonio de Oliveira`,
+    siteUrl: `modificar`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
