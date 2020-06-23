@@ -9,7 +9,7 @@ module.exports = {
     position: `Analysis and Systems Development | NodeJS | Unity |
      JavaScript | React | Fellowship of The Game`,
     author: `Amauri Antonio de Oliveira`,
-    siteUrl: `modificar`,
+    siteUrl: `https://www.google.com/`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
