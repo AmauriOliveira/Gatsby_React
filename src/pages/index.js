@@ -11,10 +11,10 @@ const IndexPage = () => (
     <h1>Home</h1>
     <ul>
       <li>
-        <Link to="/" activeStyle={{ color: '#ff5555' }}>Home</Link>
+        <Link to="/" activeStyle={{ color: '#FF5555' }}>Home</Link>
       </li>
       <li>
-        <Link to="/about" activeStyle={{ color: '#ff5555' }}>About</Link>
+        <Link to="/about" activeStyle={{ color: '#FF5555' }}>About</Link>
       </li>
     </ul>
   </Layout>
