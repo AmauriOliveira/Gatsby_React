@@ -6,18 +6,20 @@ import * as S from './styles';
 const PostItem = ({
     slug,
     background,
+    color,
     category,
     date,
+    timeToRead,
     title,
     description }) => (
         <S.PostItemLink to={slug}>
             <S.PostItemWrapper>
-                <S.PostItemTag background={background}>
+                <S.PostItemTag background={background} color={color}>
                     {category}
                 </S.PostItemTag>
                 <S.PostItemInfo>
                     <S.PostItemDate>
-                        {date}
+                        {date} • {timeToRead} min de leitura
                     </S.PostItemDate>
                     <S.PostItemTitle>
                         {title}
