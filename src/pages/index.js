@@ -9,21 +9,24 @@ const IndexPage = () => {
   const { allMarkdownRemark } = useStaticQuery(graphql`
   query PostList {
     allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            title
-            background
-            color
-            category
-            date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
-            description
-          }
-          timeToRead
+    edges {
+      node {
+        frontmatter {
+          title
+          background
+          category
+          date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+          description
+          color
         }
+        fields {
+          slug
+        }
+        timeToRead
       }
     }
   }
+}
 `)
   const postList = allMarkdownRemark.edges;
 
@@ -34,10 +37,12 @@ const IndexPage = () => {
         node: {
           frontmatter: {
             title, background, color, category, date, description, },
-          timeToRead },
+          timeToRead,
+          fields: { slug },
+        },
       }) => (
           <PostItem
-            slug="/about/"
+            slug={slug}
             background={background}
             category={category}
             color={color}
