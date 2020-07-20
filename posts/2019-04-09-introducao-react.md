@@ -3,7 +3,7 @@ background: "#5555FFDD"
 color: "#888888"
 category: CERT
 date: 2019-04-09 12:00:00
-title: Indrodução ao React
+title: Indroducao ao React
 description:  Sobre o que aprendi com o bootcamp
 ---
 

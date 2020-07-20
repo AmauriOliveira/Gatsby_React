@@ -31,31 +31,52 @@ exports.createPages = ({ graphql, actions }) => {
 
     return graphql(`
         {
-            allMarkdownRemark {
+            allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
                 edges {
-                    node {
-                        fields {
-                            slug
-                        }
+                  node {
+                    frontmatter {
+                      title
+                      background
+                      category
+                      date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+                      description
+                      color
                     }
+                    fields {
+                      slug
+                    }
+                    timeToRead
+                  }
                 }
+              }
             }
-        }
     `).then(result => {
-        result
-            .data
-            .allMarkdownRemark
-            .edges
-            .forEach(({ node }) => {
-                createPage({
-                    path: node.fields.slug,
-                    component: path.resolve(`./src/templates/blog-post.js`),
-                    context: {
-                        // Data passed to context is available
-                        // in page queries as GraphQL variables.
-                        slug: node.fields.slug,
-                    },
-                })
+        const posts = result.data.allMarkdownRemark.edges;
+
+        posts.forEach(({ node }) => {
+            createPage({
+                path: node.fields.slug,
+                component: path.resolve(`./src/templates/blog-post.js`),
+                context: {
+                    // Data passed to context is available
+                    // in page queries as GraphQL variables.
+                    slug: node.fields.slug,
+                },
             })
+        })
+        const postPorPage = 6;
+        const numPages = Math.ceil(posts.length / postPorPage);//Math.ceil arredonda pra cima
+        Array.from({ lenght: numPages }).forEach((_, index) => {
+            createPage({
+                path: index === 0 ? `/` : `/page/${index + 1}`,
+                component: path.resolve(`./src/templates/blog-list.js`),
+                context: {
+                    limit: postPorPage,
+                    skip: index * postPorPage,
+                    numPages,
+                    currentPage: index + 1.
+                },
+            })
+        })
     })
 }
