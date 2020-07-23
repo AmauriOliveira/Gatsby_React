@@ -25,18 +25,3 @@ export const query = graphql`
     }`;
 
 export default BlogPost;
-
-/*
-query Post($slug: String!) {
- markdownRemark(fields: { slug: { eq: $slug } }) {
-    frontmatter {
-      title
-      description
-      date
-      category
-    }
-    html
-  }
-}
-
-*/
