@@ -64,17 +64,19 @@ exports.createPages = ({ graphql, actions }) => {
                 },
             })
         })
-        const postPorPage = 6;
-        const numPages = Math.ceil(posts.length / postPorPage);//Math.ceil arredonda pra cima
-        Array.from({ lenght: numPages }).forEach((_, index) => {
+
+        const postsPerPage = 6
+        const numPages = Math.ceil(posts.length / postsPerPage)
+
+        Array.from({ length: numPages }).forEach((_, index) => {
             createPage({
                 path: index === 0 ? `/` : `/page/${index + 1}`,
                 component: path.resolve(`./src/templates/blog-list.js`),
                 context: {
-                    limit: postPorPage,
-                    skip: index * postPorPage,
+                    limit: postsPerPage,
+                    skip: index * postsPerPage,
                     numPages,
-                    currentPage: index + 1.
+                    currentPage: index + 1,
                 },
             })
         })
